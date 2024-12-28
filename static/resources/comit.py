@@ -7,3 +7,5 @@ name = "none"
 
 in name == "none":
   print(0)
+else:
+  print(1)
