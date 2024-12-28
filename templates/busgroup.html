@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Chat</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="static/resources/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/resources/favicon-32x32.png">
+    <link rel="stylesheet" href="../static/css/bugroup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="..\afterlog\tiles.html" class="back-button">←</a>
+            <h1>Bus Chat</h1>
+            <button class="gemini-button" onclick="openWebsite()">Chat with Gemini</button>
+           
+        </header>
+        
+        <div class="content">
+            <div class="column left-column">
+                <h2>Common group</h2>
+                <div class="group"><div class="avatar"></div>Group 1</div>
+                <h2>Your bus group</h2>
+                <div class="group"><div class="avatar"></div>Bus Group</div>
+                <div class="person"><div class="avatar"></div>Person 1</div>
+                <div class="person"><div class="avatar"></div>Person 2</div>
+            </div>
+            
+            <div class="column middle-column">
+                <h2 id="chat-name">Chat Name</h2>
+                <div class="chat-area" id="chat-area">
+                    <!-- Chat messages will be added here -->
+                </div>
+                <div class="message-input">
+                    <input type="text" id="message-input" placeholder="Type your message...">
+                    <button id="send-button">Send message</button>
+                </div>
+            </div>
+            
+            <div class="column right-column">
+                <div class="notice-box">
+                    <h2>Notice</h2>
+                    <p>Important announcements will appear here.</p>
+                </div>
+                <div class="status-updates-box">
+                    <h2>Status updates</h2>
+                    <p>Recent activities and updates will be shown in this section.</p>
+                </div>
+                <div class="quote-box">
+                    <h2>Today's Quote</h2>
+                    <p>"The journey of a thousand miles begins with one step." - Lao Tzu</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© TrackBees.pvt</p>
+        </footer>
+    </div>
+
+    <script src="../static/js/busgroup.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

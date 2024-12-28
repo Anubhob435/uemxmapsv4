@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackBees Maps</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="static/resources/favicon-32x32.png">
+   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
+    <!-- Use Flask's url_for to reference the static CSS file -->
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="background-overlay"></div>
+
+    <div class="fixed-bar">
+        <div class="left-links">
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="right-links">
+            <a href="https://gemini-flask-chat-1.onrender.com/">AI Chat</a>
+            <!-- Use url_for to link to the Flask route for the login page -->
+            <a href="{{ url_for('login') }}">Login</a>
+            
+        </div>
+    </div>
+
+    <div class="landing-container">
+        <img src="{{ url_for('static', filename='resources/download.png') }}" alt="UEM Logo" class="logo">
+        <div class="landing-title">Welcome to TrackBees</div>
+        <div class="landing-subtitle">Everyday Journey made fun And Secure</div>
+        <button class="start-button" onclick="startJourney()">--></button>
+        <button id="toggle-dark-mode">🌙</button>
+    </div>
+
+    <div class="about-section" id="about">
+        <h2>About This Project</h2>
+        <p>This project is designed to provide users with an interactive map experience using Ola Maps SDK. It includes features such as route calculation, location search, and real-time updates.</p>
+        <p>Our goal is to make map navigation and location-based services more accessible and user-friendly.</p>
+    </div>
+
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need further information, feel free to reach out:</p>
+        <p>Email: <a href="mailto:contact@uemmaps.com">contact@uemmaps.com</a></p>
+        <p>Phone: +91-1234567890</p>
+        <p>Address: 123, UEM Campus, Kolkata, India</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 IEM-UEM Group. All rights reserved.
+    </div>
+
+    <script>
+        function startJourney() {
+            window.location.href = "{{ url_for('afterlog') }}"; // Use url_for to reference the afterlog route
+        }
+
+        async function loadThemeSettings() {
+            const response = await fetch('../data/themes.json');
+            const themes = await response.json();
+            return themes;
+        }
+
+        function applyTheme(theme) {
+            document.body.classList.toggle('dark-mode', theme === 'dark');
+
+            loadThemeSettings().then(themes => {
+                const currentTheme = themes[theme];
+                document.querySelector('.background').style.backgroundImage = `url(${currentTheme.backgroundImage})`;
+                document.body.style.color = currentTheme.textColor;
+                document.querySelectorAll('.about-section, .contact-section').forEach(el => el.style.backgroundColor = currentTheme.sectionBackground);
+                document.querySelector('.start-button').style.backgroundColor = currentTheme.buttonBackground;
+                document.querySelector('.start-button').style.color = currentTheme.buttonTextColor;
+                document.querySelector('.footer').style.color = currentTheme.footerTextColor;
+            });
+        }
+
+        document.getElementById('toggle-dark-mode').addEventListener('click', () => {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            applyTheme(isDarkMode ? 'dark' : 'light');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+        });
+    </script>
+</body>
+</html>

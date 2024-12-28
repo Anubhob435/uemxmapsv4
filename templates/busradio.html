@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Radio</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="static/resources/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/resources/favicon-32x32.png">
+    <link href="../static/css/busradio.css" rel="stylesheet"/>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/afterlog" class="back-button">←</a>
+            <h1>Bus Radio</h1>
+        </header>
+        
+        <div class="content">
+            <div class="column">
+                <h2>People in the Room</h2>
+                <div class="person"><div class="avatar"></div>John Doe</div>
+                <div class="person"><div class="avatar"></div>Jane Smith</div>
+                <div class="person"><div class="avatar"></div>Sam Wilson</div>
+                <div class="person"><div class="avatar"></div>Alice Brown</div>
+            </div>
+            
+            <div class="column now-playing">
+                <h2>Now Playing</h2>
+                <div class="album-art"></div>
+                <div class="progress-bar"><div class="progress"></div></div>
+                <div class="controls">
+                    <button class="control-btn" id="prev">⏮</button>
+                    <button class="control-btn" id="play-pause">▶</button>
+                    <button class="control-btn" id="next">⏭</button>
+                </div>
+            </div>
+            
+            <div class="column">
+                <h2>Suggest next song</h2>
+                <div class="song"><div class="avatar"></div>Blinding Lights</div>
+                <div class="song"><div class="avatar"></div>Levitating</div>
+                <div class="song"><div class="avatar"></div>Save Your Tears</div>
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search for a song...">
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© TrackBees.pvt &nbsp;&nbsp;&nbsp; Powered by Spotify</p>
+        </footer>
+    </div>
+    <script src="../static/js/busradio.js"></script>
+
+</body>
+</html>

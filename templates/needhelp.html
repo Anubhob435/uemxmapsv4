@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Need Help / Assistance</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="static/resources/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/resources/favicon-32x32.png">
+    <link href="../static/css/needhelp.css" rel="stylesheet"/>
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <div class="help-container">
+        <h1>Need Help / Assistance</h1>
+        <button class="uem-maps-btn" onclick="startJourney()"><-</button>
+
+        <!-- FAQ Section -->
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+            <ul class="faq-list">
+                <li><a href="#">How do I track my Child?</a></li>
+                <li><a href="#">How to drop off at another Location</a></li>
+                <li><a href="#">How can I contact customer service?</a></li>
+                <li><a href="#">How do I change my account password?</a></li>
+                <li><a href="#">Can I update new address?</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="section">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+
+                <button type="button" onclick="submitForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chat Box Section -->
+    <div class="chat-box" onclick="toggleChat()">Need Assistance? Chat Now</div>
+
+    <!-- Live Chat Section -->
+    <div class="live-chat" id="liveChat">
+        <div class="chat-header">Live Chat</div>
+        <div class="chat-body" id="chatBody">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle live chat visibility
+        function toggleChat() {
+            const chatBox = document.getElementById('liveChat');
+            chatBox.style.display = chatBox.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function startJourney() {
+            window.location.href = "{{ url_for('afterlog') }}"; // Use url_for to reference the afterlog route
+        }
+
+
+        // Function to simulate form submission
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert('Thank you for reaching out, we will get back to you soon.');
+                document.querySelector('.contact-form').reset();
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+
+        // Function to send a message in live chat
+        function sendMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const chatBody = document.getElementById('chatBody');
+            const message = chatInput.value.trim();
+
+            if (message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.textContent = message;
+
+                chatBody.appendChild(messageDiv);
+                chatBody.scrollTop = chatBody.scrollHeight; // Scroll to bottom
+                chatInput.value = ''; // Clear input field
+
+                // Simulate reply from support
+                setTimeout(() => {
+                    const replyDiv = document.createElement('div');
+                    replyDiv.classList.add('message');
+                    replyDiv.textContent = "Support: We'll be with you shortly!";
+                    chatBody.appendChild(replyDiv);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 1000);
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus App</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="static/resources/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/resources/favicon-32x32.png">
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 90vw;
+            height: 90vh;
+        }
+
+        .box {
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            color: rgb(3, 3, 3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            text-decoration: none; /* Remove underline for the link */
+            background-color: #333; /* Fallback background color */
+        }
+
+        .box:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Specific Backgrounds for each Box */
+        .box1 {
+    background-image: url('{{ url_for("static", filename="resources/afterlog/image1.jpeg") }}');
+}
+
+.box2 {
+    background-image: url('{{ url_for("static", filename="resources/afterlog/image2.avif") }}');
+}
+
+.box3 {
+    background-image: url('{{ url_for("static", filename="resources/afterlog/image3.jpeg") }}');
+}
+
+.box4 {
+    background-image: url('{{ url_for("static", filename="resources/afterlog/image4.png") }}');
+}
+
+.box5 {
+    background-image: url('{{ url_for("static", filename="resources/afterlog/image5.jpg") }}');
+}
+
+.box6 {
+    background-image: url('{{ url_for("static", filename="resources/afterlog/image6.jpg") }}');
+}
+
+
+        /* Responsive Grid for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* 2 boxes per row on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr; /* 1 box per row on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="/map" class="box box1">Track My Bus</a>
+        <a href="/busgroup" class="box box2">My Ride Group</a>
+        <a href="/busradio" class="box box3">Live Bus Radio</a>
+        <a href="/ui" class="box box4">Settings</a>
+        <a href="/needhelp" class="box box5">Need Help</a>
+        <a href="/" class="box box6">EMERGENCY</a>
+    </div>
+
+</body>
+</html>

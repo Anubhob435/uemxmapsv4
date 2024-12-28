@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus App</title>
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 90vw;
+            height: 90vh;
+        }
+
+        .box {
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            text-decoration: none; /* Remove underline for the link */
+        }
+
+        .box:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Specific Backgrounds for each Box */
+        .box1 {
+            background-image: url('/image1.jpg');
+        }
+        .box2 {
+            background-image: url('./image2.avif');
+        }
+        .box3 {
+            background-image: url('./image3.jpeg');
+        }
+        .box4 {
+            background-image: url('./image4.png');
+        }
+        .box5 {
+            background-image: url('./image5.jpg');
+        }
+        .box6 {
+            background-image: url('./image1.png');
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="..\map.html" class="box box1">Track My Bus</a>
+        <a href="..\busgroup\index.html" class="box box2">My Ride Group</a>
+        <a href="..\busradio\index.html" class="box box3">Live Bus Radio</a>
+        <a href="..\ui\index.html" class="box box4">Settings</a>
+        <a href="..\needhelp\needhelp.html" class="box box5">Need Help</a>
+        <a href="..\index.html" class="box box6">Others</a>
+    </div>
+
+</body>
+</html>

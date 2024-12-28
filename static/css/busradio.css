@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #bfdae4;
+    line-height: 1.6;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #333;
+    animation: slideIn 1s ease-in-out;
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.back-button {
+    background: none;
+    border: none;
+    color: #add8e6;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.back-button:hover {
+    color: #1DB954;
+}
+h1 {
+    font-size: 32px;
+    text-align: center;
+    flex-grow: 1;
+    color: #1d80b9;
+}
+.content {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+.column {
+    flex: 1;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+}
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color:#1d80b9;
+}
+.person, .song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    margin-right: 15px;
+}
+.now-playing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.album-art {
+    width: 200px;
+    height: 200px;
+    background-color: #333;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+.controls {
+    display: flex;
+    gap: 20px;
+}
+.control-btn {
+    background: none;
+    border: none;
+    color: #add8e6;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.control-btn:hover {
+    color: #1DB954;
+}
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    margin: 20px 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progress {
+    width: 30%;
+    height: 100%;
+    background-color: #1DB954;
+}
+.search-bar {
+    display: flex;
+    margin-top: 20px;
+}
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    background-color: #333;
+    color: #add8e6;
+}
+.search-input::placeholder {
+    color: #aaa;
+}
+.search-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    background-color: #1DB954;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.search-btn:hover {
+    background-color: #1ed760;
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #888;
+}
